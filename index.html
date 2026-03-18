@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto Info Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Crypto Info Dashboard</h1>
+      <div class="header-actions">
+        <button id="themeToggle" class="secondary-btn">🌙 Dark Mode</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="card account-card">
+        <h2>Account erstellen</h2>
+        <form id="accountForm" class="stacked-form">
+          <label>
+            Benutzername
+            <input type="text" id="username" placeholder="z. B. MaxTrader" required />
+          </label>
+          <label>
+            E-Mail
+            <input type="email" id="email" placeholder="name@email.de" required />
+          </label>
+          <label>
+            Passwort
+            <input type="password" id="password" minlength="6" required />
+          </label>
+          <button type="submit" class="primary-btn">Account speichern</button>
+        </form>
+        <p id="accountMessage" class="info-text"></p>
+      </section>
+
+      <section class="card converter-card">
+        <h2>Coin Rechner</h2>
+        <form id="converterForm" class="stacked-form inline-grid">
+          <label>
+            Coin auswählen
+            <select id="coinSelect" required></select>
+          </label>
+          <label>
+            EUR Betrag
+            <input type="number" id="eurAmount" min="0" step="0.01" placeholder="z. B. 250" required />
+          </label>
+          <button type="submit" class="primary-btn">Berechnen</button>
+        </form>
+        <div class="result-box" id="converterResult">Bitte Coin und Betrag eingeben.</div>
+      </section>
+
+      <section class="card trending-card">
+        <h2>Top 10 Trending Coins</h2>
+        <ul id="trendingList" class="list"></ul>
+      </section>
+
+      <section class="card market-card">
+        <div class="section-header">
+          <h2>Top 100 Coins (Live Preis in EUR)</h2>
+          <span id="lastUpdated" class="badge">Lade Daten ...</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Symbol</th>
+                <th>Preis (EUR)</th>
+                <th>24h %</th>
+              </tr>
+            </thead>
+            <tbody id="marketBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
