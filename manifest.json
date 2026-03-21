@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Minimal Join Clicker",
+  "version": "0.1.0",
+  "description": "Minimal content-script extension that looks for a visible join element on a single domain.",
+  "content_scripts": [
+    {
+      "matches": ["https://DEINE-DOMAIN/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
